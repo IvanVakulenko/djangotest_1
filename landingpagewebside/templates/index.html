@@ -1,55 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %} 
+{% block title %} Title First {% endblock %}
+{% load static %}
+{% block content %}
+<h2> Try your order, please </h2>
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<img src="{% static 'img\1.jpg' %}", height ="300">
 
-<form action ="{% url 'thanks_page' %}" method ="POST">
-    {% csrf_token %}
-    <label>Name</label>
-    <input name="name">
-    <label>Phone</label>
-    <input name="phone">
-    <button type="submit">SEND</button>
-</form>
+{% include 'index_old.html' %}
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-{% if object_list %}
-<table border ="2">
-
-    <tr>
-        <th>Id</th>
-        <th>Data</th>
-        <th>Name</th>
-        <th>Phone</th>
-    </tr>
-{% for obj in object_list %}
-    <tr>
-        <th>{{ obj.id }}</th>
-        <th>{{ obj.order_dt }}</th>
-        <th>{{ obj.order_name }}</th>
-        <th>{{ obj.order_phone }}</th>
-    </tr>
-{% endfor %}
-</table>
-{% else %}
-No Data Here
-{% endif%}
-
-</body>
-</html>
+{% endblock %}
