@@ -1,7 +1,6 @@
 import requests
 from .models import TelegramSettings
 
-
 def SendTelegram(tg_name, tg_phone):
     if TelegramSettings.objects.get(pk=1):
         settings = TelegramSettings.objects.get(pk=1)
